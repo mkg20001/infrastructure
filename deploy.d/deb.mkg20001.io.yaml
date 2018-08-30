@@ -1,0 +1,17 @@
+affects:
+  - argon
+modules:
+  pkg:
+    - gnupg2
+    - dpkg-dev
+    - distro-info
+lifecycle:
+  install.pre: |
+    su maciej -c "git clone https://github.com/mkg20001/ppa-script /home/maciej/ppa-script"
+    tmp=$(mktemp -d)
+    git clone https://github.com/mkg20001/ipfs-dnslink-update "$tmp"
+    make -C "$tmp" install
+    rm -rf "$tmp"
+    su maciej -c "git clone https://github.com/mkg20001/deb.mkg20001.io /home/maciej/PPA"
+  cron.pre: |
+    with_cache deb.mkg20001.io su maciej -c "bash /home/maciej/PPA/config/cron.sh"

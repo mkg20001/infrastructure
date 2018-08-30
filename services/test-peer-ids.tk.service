@@ -1,0 +1,14 @@
+[Unit]
+Description=Test Peer IDs
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/test-peer-ids.tk
+Restart=always
+Environment="NODE_ENV=production"
+Environment="TPIDS_CPU=2"
+User=nobody
+
+[Install]
+WantedBy=multi-user.target

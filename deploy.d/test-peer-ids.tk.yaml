@@ -1,0 +1,9 @@
+affects:
+  - argon
+modules:
+  systemd:
+    test-peer-ids.tk: services/test-peer-ids.tk.service
+lifecycle:
+  install.pre: npm i -g --unsafe-perm mkg20001/test-peer-ids.tk
+  remove.pre: npm r -g test-peer-ids.tk
+  upgrade.pre: npm r -g test-peer-ids.tk && npm i -g --unsafe-perm mkg20001/test-peer-ids.tk && systemctl restart test-peer-ids.tk.service
