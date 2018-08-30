@@ -1,0 +1,12 @@
+[Unit]
+Description=Nodetrust fc00:: Proof Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/snap/bin/libp2p-nodetrust-server proof /var/snap/libp2p-nodetrust-server/common/config.fc00.json
+Restart=always
+EnvironmentFile=/opt/deploy/nodetrust/env
+
+[Install]
+WantedBy=multi-user.target

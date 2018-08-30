@@ -1,0 +1,16 @@
+affects:
+  - argon
+modules:
+  ufw:
+    - allow 25892:25893/tcp
+  snap:
+    - libp2p-nodetrust-server
+  systemd:
+    nt.issue: nodetrust/nt.issue.service
+    nt.dns: nodetrust/nt.dns.service
+    nt.fc00: nodetrust/nt.fc00.service
+    nt.v4: nodetrust/nt.v4.service
+    nt.v6: nodetrust/nt.v6.service
+lifecycle:
+  pre.pre:
+    - cp -rp /opt/deploy/nodetrust.config/* /var/snap/libp2p-nodetrust-server/common
