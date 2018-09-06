@@ -2,7 +2,7 @@ affects:
   - argon
 modules:
   ufw:
-    - allow 25892:25893/tcp
+    - allow 25892:25893/tcp comment NodeTrust
   snap:
     - libp2p-nodetrust-server
   systemd:
