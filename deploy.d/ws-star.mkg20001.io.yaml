@@ -1,0 +1,8 @@
+affects:
+  - argon
+lifecycle:
+  pre.pre: |
+    docker_run_d wsstar libp2p/websocket-star-rendezvous node-10 \
+      --publish 9090:9090 \
+      -e 'DEBUG=libp2p-websocket-star-rendezvous*'
+      --restart always \
