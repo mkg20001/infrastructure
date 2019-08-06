@@ -3,7 +3,7 @@ affects:
 modules:
   systemd:
     test-peer-ids.tk: services/test-peer-ids.tk.service
-version: 3
+version: 4
 lifecycle:
   install.pre: npm i -g --unsafe-perm mkg20001/test-peer-ids.tk
   remove.pre: npm r -g test-peer-ids.tk
